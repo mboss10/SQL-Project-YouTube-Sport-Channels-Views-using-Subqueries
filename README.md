@@ -73,3 +73,56 @@ WHERE
 
 #### Results
 <img src="https://github.com/mboss10/SQL-Project-YouTube-Sport-Channels-Views-using-Subqueries/blob/main/Q2-results.png" width="400">
+
+### Question 3
+Rewrite your subqueries in #1 and #2 as CTEs to practice!
+#### SQL code
+
+```
+/* Rewrite of 1 using CTE */	
+ WITH cte_channel_rows AS (
+ 	SELECT
+		yscs.channel_id,
+		count(1) as rows
+	FROM 
+		yt_sports_channels_stats yscs 
+	GROUP BY
+		yscs.channel_id
+ )
+ SELECT 
+ 	max(rows) as 'Max number of rows'
+ FROM 
+ 	cte_channel_rows
+ 	
+ /* Rewrite of 2 using CTE */	
+ WITH cte_channel_rows AS (
+ 	SELECT
+		yscs.channel_id,
+		count(1) as rows
+	FROM 
+		yt_sports_channels_stats yscs 
+	GROUP BY
+		yscs.channel_id
+ )
+ SELECT 
+ 	channel_id,
+ 	rows
+ FROM 
+ 	cte_channel_rows
+ WHERE 	
+ 	rows = 2
+```
+
+### Question 4
+Bonus Question: pull the duplicate channel_ids using HAVING instead of subqueries or CTEs.
+#### SQL code
+```
+ SELECT 
+ 	yscs.channel_id,
+	count(1) as rows
+FROM 
+	yt_sports_channels_stats yscs
+GROUP BY
+	yscs.channel_id
+HAVING COUNT(1) = 2
+```
