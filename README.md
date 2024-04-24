@@ -18,3 +18,4 @@ The file contains 558 rows with the following columns:
 
 ### Preview
 
+<img src="https://github.com/mboss10/SQL-Project-YouTube-Sport-Channels-Views-using-Subqueries/blob/main/YoutubeSportChannelsPreview.png" width="600">
