@@ -45,4 +45,31 @@ FROM (
 ```
 
 #### Results
-<img src="https://github.com/mboss10/SQL_BrainTree_Data_Analyst_Challenge/blob/main/Q1-results.png" width="400">
+<img src="https://github.com/mboss10/SQL-Project-YouTube-Sport-Channels-Views-using-Subqueries/blob/main/Q1-results.png" width="400">
+
+### Question 2
+Using a subquery, identify which channel_ids have 2 rows.
+#### SQL code
+
+```
+-- We select the channel id and count of rows for each	
+SELECT 
+	channel_id,
+	rows 
+FROM (	
+-- The below subquery counts the number of rows per channel
+	SELECT
+		yscs.channel_id,
+		count(1) as rows
+	FROM 
+		yt_sports_channels_stats yscs 
+	GROUP BY
+		yscs.channel_id
+	)
+-- then where clause filters on the channel with 2 rows
+WHERE 
+	rows = 2
+```
+
+#### Results
+<img src="https://github.com/mboss10/SQL-Project-YouTube-Sport-Channels-Views-using-Subqueries/blob/main/Q2-results.png" width="400">
