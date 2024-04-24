@@ -19,3 +19,30 @@ The file contains 558 rows with the following columns:
 ### Preview
 
 <img src="https://github.com/mboss10/SQL-Project-YouTube-Sport-Channels-Views-using-Subqueries/blob/main/YoutubeSportChannelsPreview.png" width="900">
+
+## The challenge
+I am using my favorite SQL client [DBeaver](https://dbeaver.io). I have created a local SQLite database and imported each .csv file into a table. <br><br>
+Below I am listing each question as they were given in the interview challenge, and underneath each I am providing a code block of the SQL queries I have written to solve the question, along with screenshot(s) of the results when relevant.
+
+### Question 1
+Using a subquery, identify the max number of rows for a single channel_id.
+#### SQL code
+
+```
+-- The below selects the maximum rows column value amongst all from the subquery listing the number of rows per channel
+SELECT 
+	max(rows) as 'Max number of rows'
+FROM (
+-- The below subquery counts the number of rows per channel
+	SELECT
+		yscs.channel_id,
+		count(1) as rows
+	FROM 
+		yt_sports_channels_stats yscs 
+	GROUP BY
+		yscs.channel_id
+	)
+```
+
+#### Results
+<img src="https://github.com/mboss10/SQL_BrainTree_Data_Analyst_Challenge/blob/main/Q1-results.png" width="400">
