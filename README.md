@@ -10,8 +10,11 @@ This dataset is available on [Kaggle](https://www.kaggle.com/datasets/kanchana19
 
 The file contains 558 rows with the following columns:
 * **channel_id:** Unique identifier for each YouTube channel.
-* channel_title
-* start_date
-* video_count
-* view_count
-* subscriber_count
+* **channel_title:** Name of the channel.
+* **start_date:** The inception date of the channel on YouTube.
+* **video_count:** Total number of videos uploaded by the channel.
+* **view_count:** Cumulative number of views across all videos.
+* **subscriber_count:** Total number of channel subscribers.
+
+### Preview
+
